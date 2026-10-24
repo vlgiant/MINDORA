@@ -1,1 +1,424 @@
 
+MINDORA — Code yo gushyira muri "index.html"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MINDORA — Explore brain games, future technology, fascinating facts and knowledge.">
+<title>MINDORA | Discover More</title>
+
+<style>
+:root {
+  --bg: #07111f;
+  --panel: #12243a;
+  --accent: #45e0c1;
+  --text: #f5f7fb;
+  --muted: #b7c5d8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: #101f35;
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 14px;
+}
+
+.hero {
+  padding: 55px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #101f35, #16435a);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 54px);
+  line-height: 1.15;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 18px auto;
+}
+
+.search {
+  width: 100%;
+  max-width: 520px;
+  padding: 15px;
+  margin-top: 18px;
+  border-radius: 10px;
+  border: 1px solid #456078;
+  font-size: 16px;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 35px auto;
+}
+
+.section-title {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, minmax(min(100%, 235px), 1fr)
+  );
+  gap: 18px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #293f57;
+  padding: 22px;
+  border-radius: 15px;
+}
+
+.card h3 {
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--muted);
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 17px;
+  background: var(--accent);
+  color: #07111f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+.result {
+  display: none;
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--panel);
+  overflow-wrap: anywhere;
+}
+
+.result.show {
+  display: block;
+}
+
+.result button {
+  margin: 5px;
+}
+
+footer {
+  text-align: center;
+  background: #101f35;
+  color: var(--muted);
+  padding: 25px 15px;
+  margin-top: 45px;
+}
+
+@media (max-width: 500px) {
+  header {
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0 7px;
+  }
+
+  .hero {
+    padding: 40px 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌍 MINDORA</div>
+  <nav aria-label="Main navigation">
+    <a href="#explore">Explore</a>
+    <a href="#games">Games</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Discover a New World</h1>
+  <p>
+    Challenge your brain, explore the future,
+    and discover ideas that could change your life.
+  </p>
+
+  <label for="search">Search MINDORA</label><br>
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Try brain games or future technology..."
+    autocomplete="off"
+  >
+</section>
+
+<main>
+  <section id="explore">
+    <h2 class="section-title">Explore MINDORA</h2>
+
+    <div class="cards" id="cards">
+
+      <article class="card" data-search="world 2086 future earth">
+        <h3>🌍 World 2086</h3>
+        <p>
+          Imagine future cities, intelligent machines,
+          and how human life might change.
+        </p>
+        <button type="button" data-action="world">
+          Explore the Future
+        </button>
+      </article>
+
+      <article class="card" data-search="brain puzzle intelligence game">
+        <h3>🧠 Brain Challenge</h3>
+        <p>
+          Test your logic and improve your problem-solving
+          skills with a number puzzle.
+        </p>
+        <button type="button" data-action="brain">
+          Play Now
+        </button>
+      </article>
+
+      <article class="card" data-search="artificial intelligence technology robots">
+        <h3>🤖 Future Technology</h3>
+        <p>
+          Discover artificial intelligence, robotics,
+          and technologies shaping tomorrow.
+        </p>
+        <button type="button" data-action="tech">
+          Discover
+        </button>
+      </article>
+
+      <article class="card" data-search="knowledge science interesting facts">
+        <h3>💡 Knowledge Hub</h3>
+        <p>
+          Learn fascinating facts about science,
+          nature, and the world around you.
+        </p>
+        <button type="button" data-action="facts">
+          Learn More
+        </button>
+      </article>
+
+    </div>
+
+    <p id="noResults" hidden>No matching topics found.</p>
+  </section>
+
+  <section id="games">
+    <div class="result" id="result" aria-live="polite"></div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🏆 Your Progress</h2>
+    <div class="card">
+      <p>
+        Brain challenge points:
+        <strong id="score">0</strong>
+      </p>
+      <p>Your score is saved in this browser when storage is available.</p>
+      <button type="button" id="resetScore">Reset Score</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year">2026</span> MINDORA. Discover More.</p>
+  <p>Learn something new every day.</p>
+</footer>
+
+<script>
+"use strict";
+
+const result = document.getElementById("result");
+const search = document.getElementById("search");
+const cards = [...document.querySelectorAll(".card[data-search]")];
+const noResults = document.getElementById("noResults");
+const scoreDisplay = document.getElementById("score");
+
+let score = 0;
+let answered = false;
+
+try {
+  score = Number(localStorage.getItem("mindoraScore")) || 0;
+} catch (error) {
+  score = 0;
+}
+
+function updateScore() {
+  scoreDisplay.textContent = String(score);
+
+  try {
+    localStorage.setItem("mindoraScore", String(score));
+  } catch (error) {
+    // The game remains usable if browser storage is unavailable.
+  }
+}
+
+function showResult(html) {
+  result.innerHTML = html;
+  result.classList.add("show");
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+}
+
+function showInfo(type) {
+  answered = false;
+
+  const pages = {
+    world: `
+      <h2>🌍 World 2086</h2>
+      <p>Imagine a world where cities use smart systems,
+      robots help with difficult tasks, and new inventions
+      change how people live.</p>
+      <p>These are possibilities, not guaranteed predictions.</p>
+      <p><strong>Think:</strong> Which invention would make
+      life better for everyone?</p>
+    `,
+
+    brain: `
+      <h2>🧠 Brain Challenge</h2>
+      <p>Find the next number in this sequence:</p>
+      <h3>2, 4, 8, 16, ?</h3>
+      <button type="button" data-action="answer" data-answer="32">
+        32
+      </button>
+      <button type="button" data-action="answer" data-answer="24">
+        24
+      </button>
+      <button type="button" data-action="answer" data-answer="20">
+        20
+      </button>
+      <p id="answer" aria-live="polite"></p>
+    `,
+
+    tech: `
+      <h2>🤖 Future Technology</h2>
+      <p>Artificial intelligence can help people analyze
+      information, translate languages, and solve problems.</p>
+      <p>It can also make mistakes, so important information
+      should be checked.</p>
+    `,
+
+    facts: `
+      <h2>💡 Knowledge Hub</h2>
+      <p>Light travels at approximately 300,000 kilometres
+      per second in a vacuum.</p>
+      <p>This is why light from the Sun takes about
+      8 minutes and 20 seconds to reach Earth.</p>
+    `
+  };
+
+  if (pages[type]) {
+    showResult(pages[type]);
+  }
+}
+
+result.addEventListener("click", function(event) {
+  const button = event.target.closest("button[data-action='answer']");
+
+  if (!button || answered) return;
+
+  answered = true;
+
+  const answer = document.getElementById("answer");
+
+  if (button.dataset.answer === "32") {
+    answer.textContent = "Correct! Each number doubles. +10 points!";
+    score += 10;
+    updateScore();
+  } else {
+    answer.textContent = "Not quite. The correct answer is 32.";
+  }
+});
+
+document.getElementById("cards").addEventListener("click", function(event) {
+  const button = event.target.closest("button[data-action]");
+
+  if (!button) return;
+
+  showInfo(button.dataset.action);
+});
+
+search.addEventListener("input", function() {
+  const query = search.value.trim().toLowerCase();
+  let visible = 0;
+
+  cards.forEach(function(card) {
+    const matches = card.dataset.search.includes(query) ||
+      card.textContent.toLowerCase().includes(query);
+
+    card.hidden = !matches;
+
+    if (matches) visible++;
+  });
+
+  noResults.hidden = visible !== 0;
+});
+
+document.getElementById("resetScore").addEventListener("click", function() {
+  score = 0;
+  updateScore();
+});
+
+document.getElementById("year").textContent =
+  String(new Date().getFullYear());
+
+updateScore();
+</script>
+
+</body>
+</html>
